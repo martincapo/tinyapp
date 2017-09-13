@@ -3,6 +3,9 @@
 <title>This is a partial page header...</title>
 <% if(username) { %>
   <p>Username: <%= username %></p>
+  <form method="POST" action="/logout">
+    <input type="submit" value="logout">
+  </form>
 <% } else { %>
 <form method="POST" action="/login">
   <input type="text" name="username" style="width: 300px" placeholder="Username">
