@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/_header %>
+</head>
+
+<body style="font-size:20px; padding:50px;">
+    <!-- Add your EJS code here -->
+    <div><a href="/urls/new">Add new URL</a></div>
+    <div>
+      <h1>URL Index</h1>
+    <% for(let shortUrl in urls) { %>
+      <form method="POST" action="/urls/<%= shortUrl %>/delete">
+        <%= shortUrl %> --->
+        <a href="/u/<%= shortUrl %>"><%= urls[shortUrl] %></a>
+        <a href="/urls/<%= shortUrl %>">Edit</a>
+        <input type="submit" value="Delete" >
+      </form>
+    <% } %>
+
+    </div>
+</body>
+</html>
