@@ -77,6 +77,13 @@ app.post("/urls", (req, res) => {
   res.redirect('/urls');
 });
 
+// Login
+app.post("/login", (req, res) => {
+  console.log(req.body);
+  res.cookie('username', req.body.username);
+  res.redirect('/urls');
+})
+
 app.get("/hello", (req, res) => {
   res.end("<html><body>Hello <b>World</b></body></html>\n");
 });
