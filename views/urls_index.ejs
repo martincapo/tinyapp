@@ -14,7 +14,9 @@
       <form method="POST" action="/urls/<%= shortUrl %>/delete">
         <%= shortUrl %> --->
         <a href="/u/<%= shortUrl %>"><%= urls[shortUrl] %></a>
+
         <a href="/urls/<%= shortUrl %>">Edit</a>
+
         <input type="submit" value="Delete" >
       </form>
     <% } %>

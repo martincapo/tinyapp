@@ -1,4 +1,5 @@
 var express = require("express");
+var cookieParser = require('cookie-parser');
 var app = express();
 var PORT = process.env.PORT || 8080; // default port 8080
 
@@ -6,7 +7,7 @@ var PORT = process.env.PORT || 8080; // default port 8080
 // request parameters, such as req.body.longURL
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cookieParser());
 app.set("view engine", "ejs");
 
 // In order to simulate generating a "unique"
@@ -36,7 +37,7 @@ app.get("/urls.json", (req, res) => {
 });
 
 app.get("/urls/new", (req, res) => {
-  res.render("urls_new");
+  res.render("urls_new", {username: req.cookies["username"]});
 });
 
 app.get("/u/:shortURL", (req, res) => {
@@ -44,8 +45,9 @@ app.get("/u/:shortURL", (req, res) => {
   res.redirect(longURL);
 });
 
+
 app.get("/urls", (req, res) => {
-  let templateVars = { urls: urlDatabase };
+  let templateVars = { urls: urlDatabase, username: req.cookies["username"]};
   res.render("urls_index", templateVars);
 });
 
@@ -79,7 +81,7 @@ app.post("/urls", (req, res) => {
 
 // Login
 app.post("/login", (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   res.cookie('username', req.body.username);
   res.redirect('/urls');
 })
