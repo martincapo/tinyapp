@@ -5,13 +5,19 @@
   <% include partials/_header %>
 </head>
 
-<body style="font-size:20px; padding:50px;">
+<body style="font-size:20px; padding:80px;">
+<% if(user === undefined) { %>
+      <p class="bg-primary" style="padding: 15px;"> Please Login or Register First !!!</p>
+
+<% } else { %>
 
     <!-- Add your EJS code here -->
-    <h1>Short URL: <%= shortURL %></h1>
-    <form method="POST" action="/urls/<%= shortURL %>/update">
-      <input id="longURL" type="text" name="longURL" value="<%= longURL %>" style="width: 300px">
+    <h1>Short URL: <%= url.id %></h1>
+    <form method="POST" action="/urls/<%= url.id %>/update">
+      <input id="longURL" type="text" name="longURL" value="<%= url.url %>" style="width: 300px">
       <input type="submit" value="Update">
     </form>
+<% } %>
+
 </body>
 </html>

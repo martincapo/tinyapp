@@ -5,17 +5,22 @@
   <% include partials/_header %>
 </head>
 
-<body style="font-size:20px; padding:50px;">
+<body style="font-size:20px; padding:80px;">
     <!-- Add your EJS code here -->
     <div>
       <h1>URL Index</h1>
+<% if(user === undefined) { %>
+      <p class="bg-primary" style="padding: 15px;"> Please Login or Register First !!!</p>
+
+<% } else { %>
+
       <table class="table">
       <% for(let shortUrl in urls) { %>
         <tr>
           <div class="form-group">
             <td align="right"><label><%= shortUrl %> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label></td>
             <td>
-              <a href="/u/<%= shortUrl %>"><%= urls[shortUrl] %></a>
+              <a href="/u/<%= shortUrl %>"><%= urls[shortUrl].url %></a>
             </td>
             <td width="5%">
               <a href="/urls/<%= shortUrl %>"><button class="btn btn-primary">Edit</button></a>
@@ -30,6 +35,7 @@
         </tr>
     <% } %>
     </table>
+<% } %>
     </div>
 </body>
 </html>
