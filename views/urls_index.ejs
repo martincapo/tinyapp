@@ -7,20 +7,29 @@
 
 <body style="font-size:20px; padding:50px;">
     <!-- Add your EJS code here -->
-    <div><a href="/urls/new">Add new URL</a></div>
     <div>
       <h1>URL Index</h1>
-    <% for(let shortUrl in urls) { %>
-      <form method="POST" action="/urls/<%= shortUrl %>/delete">
-        <%= shortUrl %> --->
-        <a href="/u/<%= shortUrl %>"><%= urls[shortUrl] %></a>
+      <table class="table">
+      <% for(let shortUrl in urls) { %>
+        <tr>
+          <div class="form-group">
+            <td align="right"><label><%= shortUrl %> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label></td>
+            <td>
+              <a href="/u/<%= shortUrl %>"><%= urls[shortUrl] %></a>
+            </td>
+            <td width="5%">
+              <a href="/urls/<%= shortUrl %>"><button class="btn btn-primary">Edit</button></a>
+            </td>
+            <td width="5%">
+              <form class="form-inline" method="POST" action="/urls/<%= shortUrl %>/delete">
 
-        <a href="/urls/<%= shortUrl %>">Edit</a>
-
-        <input type="submit" value="Delete" >
-      </form>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </td>
+          </div>
+        </form>
+        </tr>
     <% } %>
-
+    </table>
     </div>
 </body>
 </html>

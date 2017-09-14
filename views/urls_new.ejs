@@ -5,10 +5,12 @@
   </head>
   <body style="font-size:20px; padding:50px;">
 
-    <form action="/urls" method="POST" style="margin:150px;">
+    <form action="/urls" method="POST" style="margin:150px;" class="form-inline">
+      <div class="form-group">
       <label for="longURL">Enter a URL:</label>
-      <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
-      <input type="submit" value="Add New URL">
+      <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px" class="form-control">
+      <button type="submit" class="btn btn-success">Add New URL</button>
+      </div>
     </form>
   </body>
 </html>
