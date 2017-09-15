@@ -4,8 +4,8 @@ TynyApp is a full stack web application built with Node and Express that allows 
 
 ## Final Product
 
-!["screenshot description"](#)
-!["screenshot description"](#)
+!["Screenshot of URLs page"](https://github.com/martincapo/tynyapp/blob/master/doc/urls-page.png)
+!["Screenshot of register page"](https://github.com/martincapo/tynyapp/blob/master/doc/register-page.png)
 
 
 ## Dependencies
