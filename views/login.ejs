@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+      }
+    </style>
     <% include partials/_header %>
   </head>
-  <body style="font-size:20px; padding:200px;">
+  <body style="font-size:20px; padding-top: 200px">
       <% for(let i in users) { console.log(users[i]); } %>
-      <form method="POST" action="/login">
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit" value="Login">
+    <div class="container">
+      <form class="form-signin" method="POST" action="/login">
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" name="email" placeholder="email"  class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="password"  class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" >Login</button>
+        </div>
       </form>
     </div>
   </body>

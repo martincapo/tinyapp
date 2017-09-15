@@ -20,13 +20,13 @@
       <% if(user) { %>
             <li style="margin-top:10px; color:#FFF">
                 <form class="form-inline" method="POST" action="/logout">
-                  <lable>User ID : <%= user.id %> </lable>
+                  <lable>User e-mail : <%= user.email %> </lable>
                   <button type="submit" class="btn btn-danger">logout</button>
                 </form>
      <% } else { %>
-            <li><a href="/login"><button class="btn btn-success" >Login</button></a></li>
+            <li><a href="/login"><button class="btn btn-primary" >Login</button></a></li>
 
-            <li><a href="/register"><button class="btn btn-primary" >Register</button></a></li>
+            <li><a href="/register"><button class="btn btn-success" >Register</button></a></li>
 
     <% } %>
             </li>

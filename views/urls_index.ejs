@@ -14,14 +14,29 @@
 
 <% } else { %>
 
-      <table class="table">
+      <table class="table table-hover">
+        <tr>
+          <th>Short URL</th>
+          <th>URL </th>
+          <th>Created</th>
+          <th>V</th>
+          <th>UV</th>
+          <th colspan="2"></th>
+        </tr>
       <% for(let shortUrl in urls) { %>
         <tr>
           <div class="form-group">
-            <td align="right"><label><%= shortUrl %> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label></td>
+            <td align="right">
+              <label><%= shortUrl %>
+              <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+              </label>
+            </td>
             <td>
               <a href="/u/<%= shortUrl %>"><%= urls[shortUrl].url %></a>
             </td>
+            <td><%= urls[shortUrl].date %></td>
+            <td><%= urls[shortUrl].visits %></td>
+            <td><%= urls[shortUrl].uVisits %></td>
             <td width="5%">
               <a href="/urls/<%= shortUrl %>"><button class="btn btn-primary">Edit</button></a>
             </td>
@@ -35,6 +50,8 @@
         </tr>
     <% } %>
     </table>
+    <a href="/urls/new"><button class="btn btn-warning">Add New URL</button></a>
+
 <% } %>
     </div>
 </body>

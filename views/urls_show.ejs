@@ -6,17 +6,28 @@
 </head>
 
 <body style="font-size:20px; padding:80px;">
+<!-- User not loged in -->
 <% if(user === undefined) { %>
       <p class="bg-primary" style="padding: 15px;"> Please Login or Register First !!!</p>
 
+<!-- User is loged in -->
 <% } else { %>
+    <% if(errors !== null) { %>
+      <p class="bg-danger" style="padding: 15px;"><%= errors %></p>
+
+    <% } else { %>
 
     <!-- Add your EJS code here -->
     <h1>Short URL: <%= url.id %></h1>
-    <form method="POST" action="/urls/<%= url.id %>/update">
-      <input id="longURL" type="text" name="longURL" value="<%= url.url %>" style="width: 300px">
-      <input type="submit" value="Update">
+    <h4>Total Visits: <%= url.visits %></h4>
+    <h4>Unique Visits: <%= url.uVisits %></h4>
+    <h4>Created: <%= url.date %></h4>
+    <h3><%= url.url %></h3>
+    <form class="form-inline" method="POST" action="/urls/<%= url.id %>/update">
+      <input id="longURL" type="text" name="longURL" value="<%= url.url %>" style="width: 300px" class="form-control">
+      <button class="btn btn-primary" type="submit"> Update </button>
     </form>
+  <% } %>
 <% } %>
 
 </body>
